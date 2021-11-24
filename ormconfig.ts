@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { config } from 'dotenv';
+import { User } from './src/users/users.entity';
 
 config();
 export const typeORMConfig: TypeOrmModuleOptions = {
@@ -9,7 +10,7 @@ export const typeORMConfig: TypeOrmModuleOptions = {
   username: process.env.MYSQL_USERS,
   password: process.env.MYSQL_ROOT_PASSWORD,
   database: process.env.MYSQL_DATABASE,
-  entities: [__dirname + '/../**/*.entity.{js, ts}'],
-  synchronize: false,
+  entities: [User],
+  synchronize: true,
   logging: false,
 };
